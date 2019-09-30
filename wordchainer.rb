@@ -31,7 +31,9 @@ class WordChainer
 
         until current_words.length == 0
             new_current_words = []
+
             current_words.each do |ele|
+
                 adjacent_word(ele).each do |ele2|
                     if all_seen_words.include?(ele2) == false
                         new_current_words << ele2
@@ -40,10 +42,13 @@ class WordChainer
                         next
                     end
                 end
+                
             end
+
             puts new_current_words
             current_words = new_current_words
         end
+
         return all_seen_words
     end
 
