@@ -25,4 +25,26 @@ class WordChainer
         return list_words
     end
 
+    def run(source)
+        current_words = [source]
+        all_seen_words = [source]
+
+        until current_words.length == 0
+            new_current_words = []
+            current_words.each do |ele|
+                adjacent_word(ele).each do |ele2|
+                    if all_seen_words.include?(ele2) == false
+                        new_current_words << ele2
+                        all_seen_words << ele2
+                    else
+                        next
+                    end
+                end
+            end
+            puts new_current_words
+            current_words = new_current_words
+        end
+        return all_seen_words
+    end
+
 end
